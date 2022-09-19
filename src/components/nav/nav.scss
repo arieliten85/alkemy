@@ -1,0 +1,23 @@
+
+.nav{
+    background: rgb(0, 81, 255);
+}
+
+img{
+    width: 20%;
+    padding: 20px;
+}
+
+
+.rotate {
+    animation: rotation 30s infinite linear;
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

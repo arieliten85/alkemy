@@ -1,0 +1,25 @@
+td {
+  padding: 10px;
+}
+.containerAcciones {
+ 
+
+  display: flex;
+  justify-content: space-evenly;
+
+  padding: 15px;
+
+  .btn-edit {
+    background: rgb(214, 214, 25);
+  }
+  .btn-edit:hover {
+    background: rgb(190, 190, 11);
+  }
+
+  .btn-delete {
+    background: red;
+  }
+  .btn-delete:hover {
+    background: rgb(156, 16, 16);
+  }
+}

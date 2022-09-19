@@ -1,0 +1,23 @@
+{
+  "name": "balance_alkemy",
+  "version": "1.0.0",
+  "description": "challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js  "
+  },
+  "author": "Ariel Ferencak",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongodb": "^4.9.1",
+    "mongoose": "^6.6.1",
+    "nodemon": "^2.0.19",
+    "npm": "^8.19.2",
+    "routes": "^2.1.0",
+    "volleyball": "^1.5.1"
+  }
+}

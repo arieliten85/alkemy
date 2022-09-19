@@ -1,0 +1,57 @@
+.container {
+
+  display: flex;
+  justify-content: center;
+
+  padding: 20px;
+
+  .box {
+
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 15px;
+    overflow: hidden;
+   
+
+    width: 80%;
+  }
+
+  .total {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 900;
+    background: rgb(136, 141, 160);
+    padding: 20px;
+    color: rgb(49, 44, 44);
+  }
+
+  .create {
+    background: rgb(33, 95, 209);
+    font-size: 40px;
+    color: white;
+    padding: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 900;
+   
+    margin-right: 20px;
+    width: 100%;
+   
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .create:hover{
+    transition: ease 0.3s;
+    background: rgb(26, 68, 145);
+  }
+
+  
+}

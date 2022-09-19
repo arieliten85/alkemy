@@ -1,0 +1,107 @@
+@import "../nav/nav.scss";
+@import "../Registros/show/ItemListContainer/itemListContainer.scss";
+@import "../Registros/show/ItemList/itemList.scss";
+@import "../Registros/show/Item/item.scss";
+@import "../Registros/create/create.scss";
+
+//GLOBALES
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background: rgba(128, 128, 128, 0.308);
+}
+
+h2 {
+  color: white;
+}
+h3 {
+  color: black;
+  padding-top: 20px;
+  font-size: 40px;
+}
+
+//FORMS
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  padding: 15px;
+  font-size: 17px;
+  border-radius: 5px;
+  letter-spacing: 2px;
+}
+
+form {
+  background: rgb(0, 81, 255);
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+
+  div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin: 15px;
+  }
+
+  .containerBtn {
+    margin-top: 30px;
+  }
+}
+
+input,
+select {
+  width: 70%;
+  padding: 9px;
+  font-size: 15px;
+  border-radius: 15px;
+  border: none;
+}
+label {
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+  width: 20%;
+}
+
+.errorInput{
+  border: red solid;
+}
+
+//TABLE
+thead {
+  background: rgb(136, 141, 160);
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 15px;
+
+  font-size: 20px;
+}
+
+//STYLE HOOK
+
+.textCenter {
+  text-align: center;
+}
+
+.w100 {
+  width: 100%;
+}

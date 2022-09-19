@@ -1,32 +1,44 @@
 import axios from "axios";
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Item({ registro }) {
+export default function Item({ itemListReg }) {
 
-  
-  const handleDelete = (e) => {
+
+
+
+
+
+
+  const handleDelete = async (e) => {
     e.preventDefault();
 
-    axios
-      .delete(`http://localhost:4000/api/registros/delete/${registro._id}`)
-     
+    try {
+      const resp = await axios.delete(`http://localhost:4000/api/registros/delete/${itemListReg._id}`);
+      console.log(resp.data);
+    } catch (err) {
+      console.error(err);
+      
+    }
+
+  
   };
 
-  function separator(numb) {
-    var str = numb.toString().split(".");
-    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return str.join(".");
-  }
+  // function separator(numb) {
+  //   var str = numb.toString().split(".");
+  //   str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  //   return str.join(".");
+  // }
+
   return (
     <>
       <tr>
-        <td>{registro.concepto}</td>
-        <td className="textCenter">{"$" + separator(registro.monto)}</td>
-        <td className="textCenter">{registro.tipo}</td>
+        <td>{itemListReg.concepto}</td>
+        <td className="textCenter">{"$" + itemListReg.monto}</td>
+        <td className="textCenter">{itemListReg.tipo}</td>
 
         <td className="containerAcciones">
-          <Link to={`update/${registro._id}`}>
+          <Link to={`update/${itemListReg._id}`}>
             <button className="btn-edit">Editar</button>
           </Link>
 

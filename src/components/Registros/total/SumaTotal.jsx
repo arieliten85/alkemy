@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { RegistroContext } from "../../../context/RegistroContext";
 
 export default function SumaTotal() {
-  const { registros } = useContext(RegistroContext);
+  const { listReg } = useContext(RegistroContext);
 
   let ingresos = 0;
   let egresos = 0;
   let total = 0;
 
-  registros.forEach((item) => {
+  listReg.forEach((item) => {
     Object.values(item).forEach((valor) => {
       if (valor === "ingreso") {
         ingresos += Number(item.monto);

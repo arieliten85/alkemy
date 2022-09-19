@@ -13,29 +13,28 @@ export default function EditContainer() {
   const monto = useInput();
   const tipo = CaptureType();
 
-  const { registros } = useContext(RegistroContext);
+  const { listReg } = useContext(RegistroContext);
 
-  const itemUpdate = registros.filter((item) => item._id === id);
+  const itemUpdate = listReg.filter((item) => item._id === id);
 
-
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
-    axios
-      .put(`http://localhost:4000/api/registros/update/${id}`, {
-        concepto: concepto.value ? concepto.value : itemUpdate.concepto,
-        monto: monto.value ? monto.value : itemUpdate.monto,
-        tipo: tipo.value ? tipo.value : itemUpdate.tipo,
-      })
-      .then(
+    try {
+      const resp = await axios.put(
+        `http://localhost:4000/api/registros/update/${id}`,
+        {
+          concepto: concepto.value ? concepto.value : itemUpdate.concepto,
+          monto: monto.value ? monto.value : itemUpdate.monto,
+          tipo: tipo.value ? tipo.value : itemUpdate.tipo,
+        }
+      );
+      console.log(resp.data);
+    } catch (err) {
+      console.error(err);
+    }
 
-        navigate("/")
-      )
-      .catch((err) => console.log(err));
-
-   
-
-    
+    navigate("/");
   };
 
   return (

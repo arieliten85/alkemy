@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RegistroContext } from "../../../context/RegistroContext";
 import CaptureType from "../../../utils/CaptureType";
@@ -7,7 +7,6 @@ import useInput from "../../../utils/custom-hooks";
 
 export default function Create() {
 
-  const { registros } = useContext(RegistroContext);
 
   const navigate = useNavigate();
   const tipo = CaptureType();
@@ -16,9 +15,14 @@ export default function Create() {
   const monto = useInput();
 
 
-  
+  const body = {
+    concepto: concepto.value,
+    monto: monto.value,
+    tipo: tipo.value,
+  }
 
-  const handleCreate = (e) => {
+
+  const handleCreate = async (e) => {
     e.preventDefault();
 
     if ([concepto.value, monto.value, tipo.value].includes("")) {
@@ -27,24 +31,18 @@ export default function Create() {
       return;
     }
 
-    axios
-      .post("http://localhost:4000/api/registros/add", {
-        concepto: concepto.value,
-        monto: monto.value,
-        tipo: tipo.value,
-      })
-      .then(res => res.data)
-      .catch((err) => console.log(err));
+    try {
+      const resp = await axios.post("http://localhost:4000/api/registros/add",body);
+      console.log(resp.data);
+    } catch (err) {
+      console.error(err);
+    }
 
-      setTimeout(()=>{
-        navigate("/");
-      },5000)
-
-   
+    navigate("/");
   };
 
 
-  console.log(tipo.value)
+  
 
   return (
     <div>

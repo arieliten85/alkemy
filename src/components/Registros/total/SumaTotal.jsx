@@ -9,20 +9,22 @@ export default function SumaTotal() {
   let total = 0;
 
   listReg.forEach((item) => {
-    Object.values(item).forEach((valor) => {
-      if (valor === "ingreso") {
+    Object.values(item).forEach((item2) => {
+      if (item2 === "ingreso") {
         ingresos += Number(item.monto);
-
-        return (total += ingresos);
       }
 
-      if (valor === "egreso") {
+      if (item2 === "egreso") {
         egresos += Number(item.monto);
-
-        return (total -= egresos);
       }
     });
+
+    return (total = ingresos - egresos);
   });
+
+  console.log(total);
+
+
 
   function separator(numb) {
     var str = numb.toString().split(".");

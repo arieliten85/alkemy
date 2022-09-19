@@ -29,9 +29,8 @@ router.put("/update/:id", (req, res) => {
 });
 
 router.delete("/delete/:id", (req, res) => {
-  Registro.findByIdAndRemove({ _id: req.params.id }).then((result) =>
-    res.send(result)
-  );
+  Registro.findByIdAndRemove({ _id: req.params.id })
+  .then((result) => res.status(200).send(result));
 });
 
 module.exports = router;

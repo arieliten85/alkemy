@@ -3,25 +3,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Item({ itemListReg }) {
+  // const handleDelete = async (e) => {
+  //   e.preventDefault();
 
+  //   try {
+  //     const resp = await axios.delete(`http://localhost:4000/api/registros/delete/${itemListReg._id}`);
+  //     console.log(resp.data);
+  //   } catch (err) {
+  //     console.error(err);
 
+  //   }
 
+  // };
 
-
-
-
-  const handleDelete = async (e) => {
-    e.preventDefault();
+  const handleDelete = async (id) => {
 
     try {
-      const resp = await axios.delete(`http://localhost:4000/api/registros/delete/${itemListReg._id}`);
-      console.log(resp.data);
-    } catch (err) {
-      console.error(err);
-      
+      const response = await axios.delete(
+        `http://localhost:4000/api/registros/delete/${id}`
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
     }
 
-  
+    window.location.reload(true);
   };
 
   // function separator(numb) {
@@ -42,7 +49,7 @@ export default function Item({ itemListReg }) {
             <button className="btn-edit">Editar</button>
           </Link>
 
-          <button onClick={handleDelete} className="btn-delete">
+          <button onClick={() => handleDelete(itemListReg._id)} className="btn-delete">
             Eliminar
           </button>
         </td>
